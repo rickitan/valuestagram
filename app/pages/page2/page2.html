@@ -1,0 +1,30 @@
+
+<ion-navbar *navbar>
+  <ion-title>
+    Capture Value
+  </ion-title>
+</ion-navbar>
+
+<ion-content class="page2">
+  <button [hidden]="!isFormHidden" (click)="takePicture()" large fab dark fab-bottom fab-center style="z-index: 999">
+    <ion-icon name='camera'></ion-icon>
+  </button>
+  <div [hidden]="isFormHidden">
+    <ion-card>
+      <img src="{{moment.capturedImg}}"/>
+      <ion-card-content>
+        <ion-card-title>
+        </ion-card-title>
+        <div>
+          <span class="value-tag" [ngClass]="{selected: value === selectedValue}" *ngFor="#value of values" (click)="selectValue(value)">
+            <img src="{{value.picture}}" />
+          </span>
+        </div>
+        <button (click)="upload()" block="" class="disable-hover button button-default button-block">
+          <span class="button-inner">Upload</span>
+          <ion-button-effect></ion-button-effect>
+        </button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

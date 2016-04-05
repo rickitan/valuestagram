@@ -1,0 +1,35 @@
+<ion-navbar *navbar>
+  <ion-title>Values in Action</ion-title>
+</ion-navbar>
+
+<ion-content padding class="page1">
+  <ion-list>
+      <ion-card *ngFor="#moment of moments">
+        <ion-item>
+          <ion-avatar item-left>
+            <img src="img/ricardo.png">
+          </ion-avatar>
+          <h2>Ricardo Macario</h2>
+        </ion-item>
+        <img src="{{moment.image}}"/>
+        <ion-card-content>
+          <ion-card-title>
+            <img style="width:25%; margin: 0 auto;" src="{{values[moment.value]}}" />
+          </ion-card-title>
+        </ion-card-content>
+        <ion-item>
+        <button primary clear item-left (click)="valueMoment(moment)">
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{moment.values}} Values</div>
+        </button>
+        <ion-note item-right>
+          {{moment.createdAt.$date.slice(0, 10)}}
+        </ion-note>
+      </ion-item>
+      </ion-card>
+  </ion-list>
+
+  <ion-infinite-scroll (infinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
