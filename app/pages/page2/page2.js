@@ -63,7 +63,7 @@ export class Page2 {
     };
     headers.append('Content-Type', 'application/json');
     this.http.post(
-      'https://api.mlab.com/api/1/databases/valuepics/collections/images?apiKey=6b6WOOBJRgjzCbuv2_q75FQO5I1ozPlm',
+      'https://api.mlab.com/api/1/databases/valuepics/collections/images?apiKey=YOUR_MLAB_API_KEY',
       JSON.stringify(data),
       { headers: headers}
     ).subscribe(res => {

@@ -22,7 +22,7 @@ export class Page1 {
   }
 
   loadImages() {
-    this.http.get('https://api.mlab.com/api/1/databases/valuepics/collections/images?s={"createdAt": -1}&apiKey=6b6WOOBJRgjzCbuv2_q75FQO5I1ozPlm').subscribe(res => {
+    this.http.get('https://api.mlab.com/api/1/databases/valuepics/collections/images?s={"createdAt": -1}&apiKey=YOUR_MLAB_API_KEY').subscribe(res => {
       this.moments = res.json();
     });
   }
@@ -32,7 +32,7 @@ export class Page1 {
     headers.append('Content-Type', 'application/json');
     moment.values++;
     this.http.put(
-      'https://api.mlab.com/api/1/databases/valuepics/collections/images/'+moment._id.$oid+'?apiKey=6b6WOOBJRgjzCbuv2_q75FQO5I1ozPlm',
+      'https://api.mlab.com/api/1/databases/valuepics/collections/images/'+moment._id.$oid+'?apiKey=YOUR_MLAB_API_KEY',
       JSON.stringify( { "$set" : { "values" : moment.values + 1 } } ),
       { headers: headers}
     ).subscribe(res => {
